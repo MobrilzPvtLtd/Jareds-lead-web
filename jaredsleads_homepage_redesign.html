@@ -1,0 +1,2224 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --navy: #0B1628;
+    --navy-mid: #132035;
+    --coral: #05306D;
+    --coral-light: #033F85;
+    --off-white: #F7F4EF;
+    --text-light: #8A9AB5;
+    --border: rgba(255, 255, 255, 0.08);
+    --gold: #F5A623;
+  }
+
+  .jl-page {
+    font-family: 'DM Sans', sans-serif;
+    background: #F7F4EF;
+    color: #0B1628;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  /* NAV */
+  .jl-nav {
+    background: white;
+    padding: 0 40px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .jl-logo {
+    display: flex;
+    align-items: center;
+  }
+
+  .jl-logo-img {
+    height: 40px;
+    /* adjust based on header */
+    width: auto;
+    display: block;
+  }
+
+  .jl-nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .jl-nav-links a {
+    color: var(--navy);
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    transition: color 0.2s;
+  }
+
+  .jl-nav-links a:hover {
+    color: black;
+  }
+
+  .jl-nav-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .jl-phone {
+    color: var(--navy);
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .jl-btn-primary {
+    background: var(--coral);
+    color: white;
+    border: none;
+    padding: 9px 20px;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.1px;
+  }
+
+  /* HERO */
+  .jl-hero {
+    background: var(--navy);
+    padding: 72px 40px 0;
+    padding-bottom: ;
+    position: relative;
+    overflow: hidden;
+    min-height: 560px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .jl-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 40px;
+    align-items: flex-end;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .jl-hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(114, 166, 240, 0.15);
+    border: 1px solid rgba(42, 118, 232, 0.3);
+    color: #fafafadf;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+  }
+
+  .jl-hero-eyebrow::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--coral);
+    border-radius: 50%;
+    display: block;
+  }
+
+  .jl-hero-h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 46px;
+    font-weight: 800;
+    color: white;
+    line-height: 1.08;
+    letter-spacing: -1.5px;
+    margin-bottom: 20px;
+  }
+
+  .jl-hero-h1 .accent {
+    color: var(--coral-light);
+    position: relative;
+  }
+
+  .jl-hero-sub {
+    color: rgba(255, 254, 254, 0.751);
+    font-size: 15.5px;
+    line-height: 1.65;
+    max-width: 480px;
+    margin-bottom: 36px;
+    font-weight: 400;
+  }
+
+  .jl-hero-ctas {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 48px;
+  }
+
+  .jl-cta-main {
+    background: var(--coral);
+    color: white;
+    border: none;
+    padding: 13px 28px;
+    margin: auto;
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    display: flex;
+    gap: 8px;
+  }
+
+  .jl-cta-main::after {
+    content: '→';
+    font-size: 16px;
+  }
+
+  .jl-cta-secondary {
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 13px 24px;
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .jl-hero-img-col {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .jl-hero-person {
+    width: 100%;
+    height: 550px;
+  }
+
+  .jl-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* IMPORTANT */
+    display: block;
+  }
+
+  .jl-hero-badge {
+    position: absolute;
+    top: 20px;
+    left: -20px;
+    background: white;
+    border-radius: 12px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+
+  .jl-hero-badge-icon {
+    width: 34px;
+    height: 34px;
+    background: #FFF3EC;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+  }
+
+  .jl-hero-badge-text strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: #0B1628;
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+
+  .jl-hero-badge-text span {
+    font-size: 11px;
+    color: #8A9AB5;
+  }
+
+  .jl-hero-badge2 {
+    position: absolute;
+    bottom: 40px;
+    right: -16px;
+    background: var(--coral);
+    border-radius: 12px;
+    padding: 10px 14px;
+    color: white;
+    box-shadow: 0 8px 24px rgba(232, 83, 42, 0.4);
+  }
+
+  .jl-hero-badge2 strong {
+    display: block;
+    font-size: 18px;
+    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1;
+  }
+
+  .jl-hero-badge2 span {
+    font-size: 10.5px;
+    opacity: 0.85;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+  }
+
+  /* STATS BAR */
+  .jl-stats {
+    background: var(--coral);
+    padding: 0 40px;
+  }
+
+  .jl-stats-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .jl-stat-item {
+    padding: 20px 0;
+    padding-left: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .jl-stat-item:first-child {
+    padding-left: 0;
+  }
+
+  .jl-stat-item:last-child {
+    border-right: none;
+  }
+
+  .jl-stat-icon {
+    width: 38px;
+    height: 38px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .jl-stat-num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: white;
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+
+  .jl-stat-label {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+
+  /* =========================
+   CATEGORY STRIP (FINAL CLEAN)
+========================= */
+
+  .jl-category-strip {
+    background: var(--off-white);
+    padding: 20px 40px;
+    /* clean top spacing */
+    position: relative;
+    z-index: 1;
+  }
+
+  /* GRID */
+  .jl-category-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+  }
+
+  /* CARD */
+  .jl-category-item {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--coral);
+    border-radius: 14px;
+    padding: 18px 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  /* HOVER */
+  .jl-category-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--coral);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+  }
+
+  /* ACTIVE */
+  /* .jl-category-item.active {
+    background: #173355;
+    border-color: transparent;
+  } */
+
+  /* ACTIVE UNDERLINE */
+  .jl-category-item.active::after {
+    content: "";
+    display: block;
+    width: 26px;
+    height: 2px;
+    background: white;
+    margin: 10px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ICON */
+  .jl-cat-icon {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  /* TITLE */
+  .jl-cat-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--coral);
+  }
+
+  /* DESCRIPTION */
+  .jl-cat-desc {
+    font-size: 12px;
+    color: #5A6A82;
+    line-height: 1.5;
+    margin: 8px 0 10px;
+  }
+
+  /* CTA LINK */
+  .jl-cat-link {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--coral);
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s ease;
+  }
+
+  /* HOVER LINK */
+  .jl-category-item:hover .jl-cat-link {
+    text-decoration: underline;
+  }
+
+  /* OPTIONAL: improve spacing */
+  .jl-category-item {
+    padding: 18px 14px;
+  }
+
+  /* =========================
+   RESPONSIVE
+========================= */
+
+  @media (max-width: 992px) {
+    .jl-category-inner {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 576px) {
+    .jl-category-inner {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* =========================
+   HOW IT WORKS (CRO STYLE)
+========================= */
+
+  .jl-how2 {
+    padding: 64px 40px;
+    background: white;
+  }
+
+  .jl-how2-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* HEADER */
+  .jl-how2-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .jl-how2-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--coral);
+    margin-bottom: 10px;
+  }
+
+  .jl-how2-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+
+  .jl-how2-sub {
+    font-size: 14px;
+    color: #5A6A82;
+  }
+
+  /* STEPS GRID */
+  .jl-how2-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  /* STEP CARD */
+  .jl-how2-step {
+    background: var(--off-white);
+    border-radius: 16px;
+    padding: 28px 22px;
+    border: 1px solid rgba(11, 22, 40, 0.06);
+    position: relative;
+    text-align: center;
+    transition: all 0.25s ease;
+  }
+
+  /* HOVER */
+  .jl-how2-step:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(11, 22, 40, 0.12);
+  }
+
+  /* NUMBER (BIG FADED) */
+  .jl-how2-num {
+    position: absolute;
+    top: 6px;
+    left: 18px;
+    font-size: 40px;
+    font-weight: 800;
+    color: rgba(11, 22, 40, 0.201);
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  /* ICON */
+  .jl-how2-icon {
+    font-size: 26px;
+    margin-bottom: 14px;
+  }
+
+  /* TITLE */
+  .jl-how2-step h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--coral);
+    margin-bottom: 8px;
+  }
+
+  /* TEXT */
+  .jl-how2-step p {
+    font-size: 13.5px;
+    color: #5A6A82;
+    line-height: 1.6;
+  }
+
+  /* CONNECTOR LINE (desktop only) */
+  .jl-how2-step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -10px;
+    width: 20px;
+    height: 2px;
+    background: var(--coral);
+    transform: translateY(-50%);
+  }
+
+  /* CTA */
+  .jl-how2-cta {
+    text-align: center;
+    margin-top: 32px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 992px) {
+    .jl-how2-steps {
+      grid-template-columns: 1fr;
+    }
+
+    .jl-how2-step::after {
+      display: none;
+    }
+  }
+
+  /* PRODUCTS */
+  .jl-products {
+    padding: 72px 40px;
+    background: var(--off-white);
+  }
+
+  .jl-section-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .jl-eyebrow-sm {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--coral);
+    margin-bottom: 12px;
+  }
+
+  .jl-section-h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 34px;
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -0.8px;
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+
+  .jl-section-sub {
+    color: #5A6A82;
+    font-size: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .jl-products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .jl-product-card {
+    background: white;
+    border-radius: 16px;
+    padding: 28px;
+    border: 1px solid rgba(11, 22, 40, 0.07);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .jl-product-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px rgba(11, 22, 40, 0.1);
+  }
+
+  .jl-product-card.featured {
+    background: var(--coral);
+    grid-row: span 1;
+  }
+
+  .jl-product-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .jl-product-card:not(.featured) .jl-product-icon {
+    background: #FFF3EC;
+  }
+
+  .jl-product-card.featured .jl-product-icon {
+    background: rgba(232, 83, 42, 0.2);
+  }
+
+  .jl-product-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--navy);
+    letter-spacing: -0.3px;
+  }
+
+  .jl-product-card.featured .jl-product-title {
+    color: white;
+  }
+
+  .jl-product-desc {
+    font-size: 13.5px;
+    color: #5A6A82;
+    line-height: 1.55;
+    margin-bottom: 16px;
+  }
+
+  .jl-product-card.featured .jl-product-desc {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .jl-product-link {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--coral);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+  }
+
+  .jl-product-card.featured .jl-product-link {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .jl-product-num {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(11, 22, 40, 0.12);
+    letter-spacing: 1px;
+  }
+
+  .jl-product-card.featured .jl-product-num {
+    color: #c9c6c6;
+  }
+
+  /* HOW IT WORKS */
+  .jl-how {
+    padding: 72px 40px;
+    background: var(--navy);
+  }
+
+  .jl-how .jl-section-h2 {
+    color: white;
+  }
+
+  .jl-how .jl-section-sub {
+    color: rgba(255, 255, 255, 0.45);
+  }
+
+  .jl-how .jl-eyebrow-sm {
+    color: var(--coral);
+  }
+
+  .jl-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    max-width: 1100px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .jl-step {
+    padding: 36px 32px;
+    background: rgba(255, 255, 255, 0.03);
+    position: relative;
+  }
+
+  .jl-step:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--coral);
+    font-size: 20px;
+    z-index: 2;
+  }
+
+  .jl-step-num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 48px;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.06);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .jl-step-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(232, 83, 42, 0.15);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 16px;
+    border: 1px solid rgba(232, 83, 42, 0.2);
+  }
+
+  .jl-step-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+  }
+
+  .jl-step-desc {
+    font-size: 13.5px;
+    color: rgba(255, 255, 255, 0.45);
+    line-height: 1.6;
+  }
+
+  /* WHY */
+  .jl-why {
+    padding: 72px 40px;
+    background: var(--off-white);
+  }
+
+  .jl-why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .jl-why-img {
+    position: relative;
+  }
+
+  .jl-why-photo {
+    width: 100%;
+    height: 440px;
+    background: var(--navy);
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .jl-why-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  .jl-why-float {
+    position: absolute;
+    bottom: -16px;
+    right: -16px;
+    background: white;
+    border-radius: 16px;
+    padding: 16px 20px;
+    box-shadow: 0 12px 32px rgba(11, 22, 40, 0.12);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .jl-why-float-icon {
+    width: 40px;
+    height: 40px;
+    background: #E8F5E9;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+
+  .jl-why-float strong {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 3px;
+  }
+
+  .jl-why-float span {
+    font-size: 12px;
+    color: #8A9AB5;
+  }
+
+  .jl-why-content .jl-section-header {
+    text-align: left;
+    margin-bottom: 32px;
+  }
+
+  .jl-why-items {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .jl-why-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 18px 20px;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid rgba(11, 22, 40, 0.06);
+  }
+
+  .jl-why-item-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: #FFF3EC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .jl-why-item-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 3px;
+  }
+
+  .jl-why-item-desc {
+    font-size: 13px;
+    color: #5A6A82;
+    line-height: 1.55;
+  }
+
+  /* TESTIMONIALS */
+  .jl-testimonials {
+    padding: 72px 40px;
+    background: var(--navy);
+  }
+
+  .jl-testimonials .jl-section-h2 {
+    color: white;
+  }
+
+  .jl-testimonials .jl-section-sub {
+    color: rgba(255, 255, 255, 0.45);
+  }
+
+  .jl-testimonials .jl-eyebrow-sm {
+    color: var(--coral);
+  }
+
+  .jl-testi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .jl-testi-card {
+    background: var(--off-white);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 28px;
+  }
+
+  .jl-testi-stars {
+    color: var(--gold);
+    font-size: 13px;
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+  }
+
+  .jl-testi-text {
+    font-size: 14px;
+    color: var(--coral-light);
+    line-height: 1.65;
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+
+  .jl-testi-author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .jl-testi-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--coral);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .jl-testi-name {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--coral);
+    line-height: 1;
+    margin-bottom: 3px;
+  }
+
+  .jl-testi-role {
+    font-size: 11.5px;
+    color: var(--coral);
+  }
+
+  /* TRUST BAR */
+  .jl-trust {
+    background: white;
+    padding: 28px 40px;
+    border-top: 1px solid rgba(11, 22, 40, 0.06);
+    border-bottom: 1px solid rgba(11, 22, 40, 0.06);
+  }
+
+  .jl-trust-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .jl-trust-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #B0BCCC;
+    white-space: nowrap;
+  }
+
+  .jl-trust-logos {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .jl-trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: 1px solid rgba(11, 22, 40, 0.08);
+    border-radius: 8px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #3A4A5E;
+  }
+
+  .jl-faq {
+    padding: 72px 40px;
+    background: var(--off-white);
+  }
+
+  .jl-faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .jl-faq-item {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid rgba(11, 22, 40, 0.07);
+    padding: 18px 20px;
+    transition: all 0.25s ease;
+  }
+
+  .jl-faq-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(11, 22, 40, 0.08);
+  }
+
+  /* QUESTION */
+  .jl-faq-q {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+
+  /* REMOVE PLUS ICON */
+  .jl-faq-q::after {
+    display: none;
+  }
+
+  /* ANSWER ALWAYS VISIBLE */
+  .jl-faq-a {
+    font-size: 13.5px;
+    color: #5A6A82;
+    line-height: 1.65;
+  }
+
+  /* BLOG */
+  .jl-blog {
+    padding: 72px 40px;
+    background: white;
+  }
+
+  .jl-blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .jl-blog-card {
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(11, 22, 40, 0.07);
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  .jl-blog-card:hover {
+    transform: translateY(-3px);
+  }
+
+  .jl-blog-img {
+    height: 160px;
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .jl-blog-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .jl-blog-img-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+  }
+
+  .jl-blog-tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--coral);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 100px;
+  }
+
+  .jl-blog-body {
+    padding: 20px;
+  }
+
+  .jl-blog-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15.5px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.35;
+    margin-bottom: 8px;
+    letter-spacing: -0.2px;
+  }
+
+  .jl-blog-excerpt {
+    font-size: 13px;
+    color: #5A6A82;
+    line-height: 1.55;
+    margin-bottom: 14px;
+  }
+
+  .jl-blog-meta {
+    font-size: 11.5px;
+    color: #B0BCCC;
+    font-weight: 500;
+  }
+
+  /* =========================
+   TRUST BADGE BAR (ENHANCED)
+========================= */
+
+  .jl-trust-bar {
+    background: white;
+    padding: 48px 40px;
+    /* 🔥 increased height */
+    border-top: 1px solid rgba(11, 22, 40, 0.06);
+    border-bottom: 1px solid rgba(11, 22, 40, 0.06);
+  }
+
+  /* CONTAINER */
+  .jl-trust-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    /* 🔥 stack for better layout */
+    align-items: center;
+    gap: 28px;
+    text-align: center;
+  }
+
+  /* LABEL */
+  .jl-trust-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #9AA8BD;
+  }
+
+  /* BADGE GRID */
+  .jl-trust-items {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+
+  /* BADGE CARDS */
+  .jl-trust-item {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #2E3A4D;
+    padding: 12px 18px;
+    /* 🔥 bigger padding */
+    border: 1px solid rgba(11, 22, 40, 0.08);
+    border-radius: 10px;
+    background: #fafafa;
+    transition: all 0.25s ease;
+  }
+
+  /* HOVER */
+  .jl-trust-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(11, 22, 40, 0.1);
+  }
+
+  /* LOGOS */
+  .jl-trust-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    margin-top: 10px;
+  }
+
+  .jl-trust-logos img {
+    height: 32px;
+    width: auto;
+    opacity: 0.65;
+    transition: all 0.25s ease;
+  }
+
+  /* DUMMY LOGOS */
+  .jl-dummy-logo {
+    width: 90px;
+    height: 32px;
+    border: 1px solid rgba(11, 22, 40, 0.1);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: #8A9AB5;
+    background: #f5f7fa;
+    letter-spacing: 1px;
+  }
+
+  .jl-trust-logos img:hover {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  /* OPTIONAL: subtle divider line */
+  .jl-trust-bar::before {
+    content: "";
+    width: 60px;
+    height: 3px;
+    background: var(--coral);
+    display: block;
+    margin: 0 auto 20px;
+    border-radius: 2px;
+  }
+
+  /* =========================
+   RESPONSIVE
+========================= */
+
+  @media (max-width: 768px) {
+    .jl-trust-bar {
+      padding: 36px 20px;
+    }
+
+    .jl-trust-logos {
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+  }
+
+  /* CTA FOOTER */
+  .jl-cta-footer {
+    padding: 72px 40px;
+    background: var(--coral);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .jl-cta-footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+
+  .jl-cta-footer-h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -0.8px;
+    line-height: 1.1;
+    max-width: 460px;
+  }
+
+  .jl-cta-footer-sub {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 15px;
+    margin-top: 10px;
+  }
+
+  .jl-cta-footer-btns {
+    display: flex;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  .jl-btn-white {
+    background: white;
+    color: var(--coral);
+    border: none;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .jl-btn-outline-white {
+    background: transparent;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    padding: 14px 24px;
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  /* FOOTER */
+  .jl-footer {
+    background: white;
+    padding: 48px 40px 28px;
+  }
+
+  .jl-footer-grid {
+    display: grid;
+    grid-template-columns: 220px repeat(4, 1fr);
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto 36px;
+  }
+
+  .jl-footer-brand p {
+    font-size: 13px;
+    color: var(--navy);
+    line-height: 1.6;
+    margin-top: 12px;
+  }
+
+  .jl-footer-col-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+
+  .jl-footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .jl-footer-links a {
+    font-size: 13.5px;
+    color: var(--navy);
+    text-decoration: none;
+  }
+
+  .jl-footer-bottom {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .jl-footer-bottom p {
+    font-size: 12.5px;
+    color: rgba(255, 255, 255, 0.25);
+  }
+
+  .jl-footer-legal {
+    display: flex;
+    gap: 20px;
+  }
+
+  .jl-footer-legal a {
+    font-size: 12.5px;
+    color: rgba(255, 255, 255, 0.25);
+    text-decoration: none;
+  }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+
+    {
+      "@type": "Question",
+      "name": "What is a mailing list?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A mailing list is a collection of contact data such as names, addresses, or emails used for marketing campaigns like direct mail, email outreach, and telemarketing."
+      }
+    },
+
+    {
+      "@type": "Question",
+      "name": "How much does a mailing list cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pricing varies by list type, targeting criteria, and volume. Costs typically range from a few cents to several dollars per record depending on quality and specificity."
+      }
+    },
+
+    {
+      "@type": "Question",
+      "name": "What types of mailing lists are available?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We offer business mailing lists, consumer mailing lists, email lists, telemarketing lists, direct mail services, and custom-built targeted data."
+      }
+    },
+
+    {
+      "@type": "Question",
+      "name": "How do I buy a targeted email list?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can request a custom list by defining your audience criteria such as industry, job title, location, or demographics."
+      }
+    },
+
+    {
+      "@type": "Question",
+      "name": "What is the difference between a mailing list and an email list?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A mailing list contains physical postal addresses for direct mail campaigns, while an email list contains verified email addresses for digital outreach."
+      }
+    },
+
+    {
+      "@type": "Question",
+      "name": "How often is your data updated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our data is continuously updated through multiple source feeds and hygiene cycles to ensure accuracy and deliverability."
+      }
+    },
+
+    {
+      "@type": "Question",
+      "name": "Do you offer data hygiene and list cleaning services?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We provide data hygiene services including deduplication, verification, and data appending."
+      }
+    },
+
+    {
+      "@type": "Question",
+      "name": "Can I get a sample list before purchasing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, you can request a sample list to evaluate data quality before purchasing."
+      }
+    }
+
+  ]
+}
+</script>
+
+<div class="jl-page">
+
+  <!-- NAV -->
+  <nav class="jl-nav">
+    <div class="jl-logo">
+      <img src="logo.png" alt="Jared's Leads Logo" class="jl-logo-img">
+    </div>
+    <ul class="jl-nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Solutions</a></li>
+      <li><a href="#">Industries</a></li>
+      <li><a href="#">How It Works</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <div class="jl-nav-right">
+      <span class="jl-phone">📞 866-532-3788</span>
+      <button class="jl-btn-primary">Build Your List</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="jl-hero">
+    <div
+      style="position:absolute;top:0;right:0;width:50%;height:100%;background:radial-gradient(ellipse at 80% 30%, rgba(232,83,42,0.08) 0%, transparent 65%);pointer-events:none;">
+    </div>
+    <div class="jl-hero-grid">
+      <div class="jl-hero-content">
+        <div class="jl-hero-eyebrow">Data-Driven Lead Generation</div>
+        <h1 class="jl-hero-h1">
+          Targeted Mailing Lists,<br>
+          Email Lists, and<br>
+          Sales Leads <span class="accent">Built<br>for Your Business</span>
+        </h1>
+        <p class="jl-hero-sub">
+          Since 2007, Jared's Leads has helped businesses connect with the right prospects using verified data. Business
+          lists, consumer lists, email lists, telemarketing, and direct mail — all in one place.
+        </p>
+        <div class="jl-hero-ctas">
+          <button class="jl-cta-main">Build Your List</button>
+          <button class="jl-cta-secondary">Get a Free Quote</button>
+        </div>
+        <div style="display:flex;gap:24px;align-items:center; margin-bottom: 20px;">
+          <div style="display:flex;align-items:center;gap:6px;">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <circle cx="7" cy="7" r="7" fill="#22C55E" />
+              <path d="M4 7l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+            <span style="font-size:12.5px;color:rgba(255,255,255,0.5);">98%+ Deliverability</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <circle cx="7" cy="7" r="7" fill="#22C55E" />
+              <path d="M4 7l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+            <span style="font-size:12.5px;color:rgba(255,255,255,0.5);">No Minimums</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <circle cx="7" cy="7" r="7" fill="#22C55E" />
+              <path d="M4 7l2 2 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+            <span style="font-size:12.5px;color:rgba(255,255,255,0.5);">No Contracts</span>
+          </div>
+        </div>
+      </div>
+      <div class="jl-hero-img-col">
+        <div class="jl-hero-person">
+          <img src="Hero.png" alt="Hero Image" class="jl-hero-img">
+        </div>
+        <div class="jl-hero-badge">
+          <div class="jl-hero-badge-icon">📊</div>
+          <div class="jl-hero-badge-text">
+            <strong>22M+</strong>
+            <span>Business Records</span>
+          </div>
+        </div>
+        <div class="jl-hero-badge2">
+          <strong>200M+</strong>
+          <span>Consumer Records</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="jl-stats">
+    <div class="jl-stats-inner">
+      <div class="jl-stat-item">
+        <div class="jl-stat-icon">📈</div>
+        <div>
+          <div class="jl-stat-num">4X</div>
+          <div class="jl-stat-label">Business Growth</div>
+        </div>
+      </div>
+      <div class="jl-stat-item">
+        <div class="jl-stat-icon">🏆</div>
+        <div>
+          <div class="jl-stat-num">17+</div>
+          <div class="jl-stat-label">Years of Experience</div>
+        </div>
+      </div>
+      <div class="jl-stat-item">
+        <div class="jl-stat-icon">✅</div>
+        <div>
+          <div class="jl-stat-num">A+</div>
+          <div class="jl-stat-label">Data Accuracy</div>
+        </div>
+      </div>
+      <div class="jl-stat-item">
+        <div class="jl-stat-icon">💬</div>
+        <div>
+          <div class="jl-stat-num">24/7</div>
+          <div class="jl-stat-label">Support</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY STRIP -->
+  <section class="jl-category-strip">
+    <div class="jl-category-inner">
+
+      <div class="jl-category-item active">
+        <div class="jl-cat-icon">📬</div>
+        <div class="jl-cat-title">Mailing Lists</div>
+        <p class="jl-cat-desc">Target verified B2B & B2C audiences by industry, location, and demographics.</p>
+        <a href="#" class="jl-cat-link">View Mailing Lists →</a>
+      </div>
+
+      <div class="jl-category-item">
+        <div class="jl-cat-icon">📧</div>
+        <div class="jl-cat-title">Email Lists</div>
+        <p class="jl-cat-desc">Reach inboxes with opt-in, high-deliverability email databases.</p>
+        <a href="#" class="jl-cat-link">Browse Email Lists →</a>
+      </div>
+
+      <div class="jl-category-item">
+        <div class="jl-cat-icon">📞</div>
+        <div class="jl-cat-title">Telemarketing Lists</div>
+        <p class="jl-cat-desc">Connect faster using phone-verified, DNC-compliant contact data.</p>
+        <a href="#" class="jl-cat-link">Explore Call Lists →</a>
+      </div>
+
+      <div class="jl-category-item">
+        <div class="jl-cat-icon">🔧</div>
+        <div class="jl-cat-title">Data Services</div>
+        <p class="jl-cat-desc">Clean, enhance, and validate your data with professional services.</p>
+        <a href="#" class="jl-cat-link">View Data Services →</a>
+      </div>
+
+      <div class="jl-category-item">
+        <div class="jl-cat-icon">✉️</div>
+        <div class="jl-cat-title">Direct Mail</div>
+        <p class="jl-cat-desc">Full-service direct mail campaigns from design to delivery.</p>
+        <a href="#" class="jl-cat-link">Start Direct Mail →</a>
+      </div>
+
+      <div class="jl-category-item">
+        <div class="jl-cat-icon">📚</div>
+        <div class="jl-cat-title">Resources</div>
+        <p class="jl-cat-desc">Guides, insights, and strategies to improve your lead generation ROI.</p>
+        <a href="#" class="jl-cat-link">Explore Resources →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="jl-products">
+    <div class="jl-section-header">
+      <div class="jl-eyebrow-sm">Our Data Solutions</div>
+      <h2 class="jl-section-h2">Everything You Need to<br>Reach the Right Audience</h2>
+      <p class="jl-section-sub">Six core product categories built for businesses that need better data and better
+        buyers.</p>
+    </div>
+    <div class="jl-products-grid">
+      <div class="jl-product-card featured">
+        <div class="jl-product-num">01</div>
+        <div class="jl-product-icon">📬</div>
+        <div class="jl-product-title">Business Mailing Lists</div>
+        <div class="jl-product-desc">Target B2B prospects by industry, SIC/NAICS code, employee size, and geography.
+          Access 22M+ verified business records.</div>
+        <a href="#" class="jl-product-link">Explore Lists →</a>
+      </div>
+      <div class="jl-product-card">
+        <div class="jl-product-num">02</div>
+        <div class="jl-product-icon">🏠</div>
+        <div class="jl-product-title">Consumer Mailing Lists</div>
+        <div class="jl-product-desc">Reach households by demographics — age, income, homeownership, zip code. 200M+
+          consumer records nationwide.</div>
+        <a href="#" class="jl-product-link">Explore Lists →</a>
+      </div>
+      <div class="jl-product-card">
+        <div class="jl-product-num">03</div>
+        <div class="jl-product-icon">📧</div>
+        <div class="jl-product-title">Email Lists</div>
+        <div class="jl-product-desc">Targeted B2B and B2C email lists for digital campaigns. Verified, opt-in data with
+          strong deliverability rates.</div>
+        <a href="#" class="jl-product-link">Explore Lists →</a>
+      </div>
+      <div class="jl-product-card">
+        <div class="jl-product-num">04</div>
+        <div class="jl-product-icon">📞</div>
+        <div class="jl-product-title">Telemarketing Lists</div>
+        <div class="jl-product-desc">Phone-verified lists for outbound calling campaigns. DNC-scrubbed and
+          TCPA-compliant for worry-free outreach.</div>
+        <a href="#" class="jl-product-link">Explore Lists →</a>
+      </div>
+      <div class="jl-product-card">
+        <div class="jl-product-num">05</div>
+        <div class="jl-product-icon">🔧</div>
+        <div class="jl-product-title">Data Services</div>
+        <div class="jl-product-desc">CASS certification, NCOA processing, data appending, deduplication, and email
+          verification to keep your lists clean.</div>
+        <a href="#" class="jl-product-link">Explore Services →</a>
+      </div>
+      <div class="jl-product-card">
+        <div class="jl-product-num">06</div>
+        <div class="jl-product-icon">✉️</div>
+        <div class="jl-product-title">Direct Mail Services</div>
+        <div class="jl-product-desc">End-to-end direct mail — from design and print to delivery. Full-service campaigns
+          that get results.</div>
+        <a href="#" class="jl-product-link">Explore Services →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="jl-how2">
+    <div class="jl-how2-inner">
+
+      <div class="jl-how2-header">
+        <div class="jl-how2-eyebrow">Simple 3-Step Process</div>
+        <h2 class="jl-how2-title">How It Works</h2>
+        <p class="jl-how2-sub">
+          Get your targeted list in 24–48 hours. No complexity, no long setup.
+        </p>
+      </div>
+
+      <div class="jl-how2-steps">
+
+        <!-- STEP 1 -->
+        <div class="jl-how2-step">
+          <div class="jl-how2-num">01</div>
+          <div class="jl-how2-icon">🎯</div>
+          <h3>Tell Us Your Target Audience</h3>
+          <p>Define your ideal customer by industry, location, demographics, or behavior.</p>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="jl-how2-step">
+          <div class="jl-how2-num">02</div>
+          <div class="jl-how2-icon">⚙️</div>
+          <h3>We Build Your Custom List</h3>
+          <p>Our experts compile and verify data from trusted sources with full hygiene.</p>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="jl-how2-step">
+          <div class="jl-how2-num">03</div>
+          <div class="jl-how2-icon">📥</div>
+          <h3>Receive Verified Data</h3>
+          <p>Download ready-to-use, deliverable lists in CSV, Excel, or mailing formats.</p>
+        </div>
+
+      </div>
+
+      <div class="jl-how2-cta">
+        <button class="jl-cta-main">Build Your List</button>
+      </div>
+
+    </div>
+  </section>
+  <!-- <section class="jl-how">
+    <div class="jl-section-header">
+      <div class="jl-hero-eyebrow">Simple Process</div>
+      <h2 class="jl-section-h2">Your Custom List in 3 Steps</h2>
+      <p class="jl-section-sub">Done in 24–48 hours. No complicated setup, no long contracts.</p>
+    </div>
+    <div class="jl-steps">
+      <div class="jl-step">
+        <div class="jl-step-num">01</div>
+        <div class="jl-step-icon">🎯</div>
+        <div class="jl-step-title">Tell Us Your Target Audience</div>
+        <div class="jl-step-desc">Define your ideal customer by geography, demographics, industry, business size, or
+          behavior. We'll help you refine it.</div>
+      </div>
+      <div class="jl-step">
+        <div class="jl-step-num">02</div>
+        <div class="jl-step-icon">⚙️</div>
+        <div class="jl-step-title">We Build Your Custom List</div>
+        <div class="jl-step-desc">Our data team sources and compiles verified records from premium providers, applying
+          hygiene and deduplication.</div>
+      </div>
+      <div class="jl-step">
+        <div class="jl-step-num">03</div>
+        <div class="jl-step-icon">📥</div>
+        <div class="jl-step-title">Receive Verified, Deliverable Data</div>
+        <div class="jl-step-desc">Download your list in CSV, Excel, or label-ready formats. CASS-certified for maximum
+          deliverability.</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:36px;">
+      <button class="jl-cta-main" style="margin:0 auto;">Get Started Today</button>
+    </div>
+  </section> -->
+
+  <!-- WHY JARED'S LEADS -->
+  <section class="jl-why">
+    <div class="jl-why-grid">
+      <div class="jl-why-img">
+        <div class="jl-why-photo">
+          <img src="About.jpg" alt="About Image" class="jl-why-img">
+        </div>
+        <div class="jl-why-float">
+          <div class="jl-why-float-icon">✅</div>
+          <div>
+            <strong>98%+ Deliverability</strong>
+            <span>Guaranteed on every list</span>
+          </div>
+        </div>
+      </div>
+      <div class="jl-why-content">
+        <div class="jl-section-header">
+          <div class="jl-eyebrow-sm">Why Choose Us</div>
+          <h2 class="jl-section-h2">17 Years of Data<br>Expertise Behind<br>Every List</h2>
+          <p class="jl-section-sub">We're not a data portal with a ticket number. We're a team of experts dedicated to
+            your results.</p>
+        </div>
+        <div class="jl-why-items">
+          <div class="jl-why-item">
+            <div class="jl-why-item-icon">🏆</div>
+            <div>
+              <div class="jl-why-item-title">Inc. 5000 Recognized</div>
+              <div class="jl-why-item-desc">One of America's fastest-growing private companies — a third-party
+                credibility marker that speaks for itself.</div>
+            </div>
+          </div>
+          <div class="jl-why-item">
+            <div class="jl-why-item-icon">🛡️</div>
+            <div>
+              <div class="jl-why-item-title">98%+ Deliverability Guarantee</div>
+              <div class="jl-why-item-desc">Multi-source verification, CASS certification, and regular data hygiene
+                ensure clean, deliverable lists every time.</div>
+            </div>
+          </div>
+          <div class="jl-why-item">
+            <div class="jl-why-item-icon">👤</div>
+            <div>
+              <div class="jl-why-item-title">Dedicated Account Manager</div>
+              <div class="jl-why-item-desc">A real person who knows your business, available 24/7. Not a chatbot, not a
+                ticket queue.</div>
+            </div>
+          </div>
+          <div class="jl-why-item">
+            <div class="jl-why-item-icon">🔓</div>
+            <div>
+              <div class="jl-why-item-title">No Minimums, No Contracts</div>
+              <div class="jl-why-item-desc">Start small or go big. Flexible list building with self-service and
+                full-service options to match any budget.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="jl-testimonials">
+    <div class="jl-section-header">
+      <div class="jl-hero-eyebrow">Client Feedback</div>
+      <h2 class="jl-section-h2">What Our Clients Say</h2>
+      <p class="jl-section-sub">Real results from businesses who trust Jared's Leads for their prospect data.</p>
+    </div>
+    <div class="jl-testi-grid">
+      <div class="jl-testi-card">
+        <div class="jl-testi-stars">★★★★★</div>
+        <div class="jl-testi-text">"Jared's Leads delivered exactly what they promised — a targeted, verified list that
+          drove a 40% increase in direct mail response rate. The account support was exceptional."</div>
+        <div class="jl-testi-author">
+          <div class="jl-testi-avatar">MF</div>
+          <div>
+            <div class="jl-testi-name">Michael F.</div>
+            <div class="jl-testi-role">VP Marketing, Private Financial Group</div>
+          </div>
+        </div>
+      </div>
+      <div class="jl-testi-card">
+        <div class="jl-testi-stars">★★★★★</div>
+        <div class="jl-testi-text">"We've used three other list providers over the years. None of them come close to the
+          data quality Jared's delivers. The custom list building was fast and they truly understood our niche."</div>
+        <div class="jl-testi-author">
+          <div class="jl-testi-avatar" style="background:#185FA5;">ST</div>
+          <div>
+            <div class="jl-testi-name">Sandra T.</div>
+            <div class="jl-testi-role">Owner, General Remodeling</div>
+          </div>
+        </div>
+      </div>
+      <div class="jl-testi-card">
+        <div class="jl-testi-stars">★★★★★</div>
+        <div class="jl-testi-text">"As insurance agents, we invest in targeted lists constantly. Jared's consistently
+          outperforms everyone else. They're the best data providers delivering the best ROI in the space."</div>
+        <div class="jl-testi-author">
+          <div class="jl-testi-avatar" style="background:#0F6E56;">DK</div>
+          <div>
+            <div class="jl-testi-name">David K.</div>
+            <div class="jl-testi-role">Director, Southeast Insurance Partners</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:36px;">
+      <button
+        style="background:rgba(255,255,255,0.08);color:white;border:1px solid rgba(255,255,255,0.15);padding:11px 24px;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;cursor:pointer;">Read
+        All Testimonials →</button>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <!-- <div class="jl-trust">
+    <div class="jl-trust-inner">
+      <span class="jl-trust-label">Trusted & Certified</span>
+      <div class="jl-trust-logos">
+        <div class="jl-trust-badge">🏅 Inc. 5000 Honoree</div>
+        <div class="jl-trust-badge">⭐ BBB A+ Rated</div>
+        <div class="jl-trust-badge">✅ CASS Certified</div>
+        <div class="jl-trust-badge">🔒 TCPA Compliant</div>
+        <div class="jl-trust-badge">📧 CAN-SPAM Compliant</div>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- FAQ -->
+  <section class="jl-faq">
+    <div class="jl-section-header">
+      <div class="jl-eyebrow-sm">Common Questions</div>
+      <h2 class="jl-section-h2">Mailing List & Data FAQs</h2>
+      <p class="jl-section-sub">Everything you need to know about mailing lists, pricing, and data quality.</p>
+    </div>
+
+    <div class="jl-faq-grid">
+
+      <!-- NEW (HIGH SEO) -->
+      <div class="jl-faq-item">
+        <div class="jl-faq-q">What is a mailing list?</div>
+        <div class="jl-faq-a">
+          A mailing list is a collection of contact data such as names, addresses, or emails used for marketing
+          campaigns like direct mail, email outreach, and telemarketing.
+        </div>
+      </div>
+
+      <div class="jl-faq-item">
+        <div class="jl-faq-q">How much does a mailing list cost?</div>
+        <div class="jl-faq-a">
+          Pricing varies by list type, targeting criteria, and volume. Costs typically range from a few cents to several
+          dollars per record depending on quality and specificity.
+        </div>
+      </div>
+
+      <div class="jl-faq-item">
+        <div class="jl-faq-q">What types of mailing lists are available?</div>
+        <div class="jl-faq-a">
+          We offer business mailing lists, consumer mailing lists, email lists, telemarketing lists, direct mail
+          services, and custom-built targeted data.
+        </div>
+      </div>
+
+      <div class="jl-faq-item">
+        <div class="jl-faq-q">How do I buy a targeted email list?</div>
+        <div class="jl-faq-a">
+          You can request a custom list by defining your audience criteria such as industry, job title, location, or
+          demographics. Our team builds and verifies your list before delivery.
+        </div>
+      </div>
+
+      <!-- YOUR EXISTING QUESTIONS -->
+      <div class="jl-faq-item">
+        <div class="jl-faq-q">What is the difference between a mailing list and an email list?</div>
+        <div class="jl-faq-a">
+          A mailing list contains physical postal addresses for direct mail campaigns, while an email list contains
+          verified email addresses for digital marketing outreach.
+        </div>
+      </div>
+
+      <div class="jl-faq-item">
+        <div class="jl-faq-q">How often is your data updated?</div>
+        <div class="jl-faq-a">
+          Our data is continuously updated through multiple source feeds, NCOA processing, and regular hygiene cycles to
+          ensure maximum accuracy and deliverability.
+        </div>
+      </div>
+
+      <div class="jl-faq-item">
+        <div class="jl-faq-q">Do you offer data hygiene and list cleaning services?</div>
+        <div class="jl-faq-a">
+          Yes. Our Data Services include CASS certification, NCOA processing, deduplication, email verification, and
+          data appending.
+        </div>
+      </div>
+
+      <div class="jl-faq-item">
+        <div class="jl-faq-q">Can I get a sample list before purchasing?</div>
+        <div class="jl-faq-a">
+          Yes — contact us to request a sample. We want you to be confident in the data quality before you commit.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section class="jl-blog">
+    <div class="jl-section-header">
+      <div class="jl-eyebrow-sm">From the Blog</div>
+      <h2 class="jl-section-h2">Lead Generation Insights</h2>
+      <p class="jl-section-sub">Practical guides, industry data, and expert strategies to help you get more from your
+        lists.</p>
+    </div>
+    <div class="jl-blog-grid">
+      <div class="jl-blog-card">
+        <div class="jl-blog-img" style="background:#0B1628;">
+          <img src="1st.png" alt="Process Image" class="jl-process-img">
+          <div class="jl-blog-tag">Direct Mail</div>
+        </div>
+        <div class="jl-blog-body">
+          <div class="jl-blog-title">How to Build a High-Converting Direct Mail Campaign with a Targeted Mailing List
+          </div>
+          <div class="jl-blog-excerpt">The difference between a 1% response rate and a 5% response rate often comes down
+            to list quality.</div>
+          <div class="jl-blog-meta">March 2024 · 6 min read</div>
+        </div>
+      </div>
+      <div class="jl-blog-card">
+        <div class="jl-blog-img" style="background:#132035;">
+          <img src="2nd.png" alt="Process Image" class="jl-process-img">
+          <div class="jl-blog-tag">Data Strategy</div>
+        </div>
+        <div class="jl-blog-body">
+          <div class="jl-blog-title">B2B vs. B2C Mailing Lists: What's the Difference and Which Do You Need?</div>
+          <div class="jl-blog-excerpt">Business and consumer lists are fundamentally different in how they're compiled,
+            maintained, and structured.</div>
+          <div class="jl-blog-meta">February 2024 · 5 min read</div>
+        </div>
+      </div>
+      <div class="jl-blog-card">
+        <div class="jl-blog-img" style="background:#1a2a1a;">
+          <img src="3rd.png" alt="Process Image" class="jl-process-img">
+          <div class="jl-blog-tag">Insurance</div>
+        </div>
+        <div class="jl-blog-body">
+          <div class="jl-blog-title">The 7 Most Profitable Lead Types for Insurance Agents in 2024</div>
+          <div class="jl-blog-excerpt">Insurance agents who invest in targeted leads consistently outperform those
+            relying on referrals alone.</div>
+          <div class="jl-blog-meta">January 2024 · 7 min read</div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:36px;">
+      <button
+        style="background:transparent;color:var(--coral);border:2px solid var(--coral);padding:12px 28px;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:14.5px;font-weight:600;cursor:pointer;">Explore
+        All Resources →</button>
+    </div>
+  </section>
+
+  <!-- Trust Bar -->
+  <section class="jl-trust-bar">
+    <div class="jl-trust-inner">
+
+      <div class="jl-trust-label">
+        Trusted & Recognized
+      </div>
+
+      <div class="jl-trust-items">
+
+        <div class="jl-trust-item">
+          🏆 Inc. 5000 Honoree
+        </div>
+
+        <div class="jl-trust-item">
+          ⭐ BBB A+ Rated
+        </div>
+
+        <div class="jl-trust-item">
+          ✅ 98% Data Accuracy
+        </div>
+
+        <div class="jl-trust-item">
+          🔒 TCPA & CAN-SPAM Compliant
+        </div>
+
+        <!-- CLIENT LOGOS -->
+        <div class="jl-trust-logos">
+
+          <div class="jl-dummy-logo alt">BrandOne</div>
+          <div class="jl-dummy-logo alt">BrandTwo</div>
+          <div class="jl-dummy-logo alt">BrandThree</div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA FOOTER -->
+  <section class="jl-cta-footer">
+    <div
+      style="position:absolute;top:-40px;right:-40px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,0.06);pointer-events:none;">
+    </div>
+    <div
+      style="position:absolute;bottom:-60px;left:-30px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,0.04);pointer-events:none;">
+    </div>
+    <div class="jl-cta-footer-inner">
+      <div>
+        <h2 class="jl-cta-footer-h2">Ready to Build<br>Your List?</h2>
+        <p class="jl-cta-footer-sub">Start reaching your ideal customers today. No minimums, no contracts.</p>
+      </div>
+      <div class="jl-cta-footer-btns">
+        <button class="jl-btn-white">Get a Free Quote</button>
+        <button class="jl-btn-outline-white">Build Your List</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="jl-footer">
+    <div class="jl-footer-grid">
+      <div class="jl-footer-brand">
+        <div class="jl-logo">
+          <img src="logo.png" alt="Jared's Leads Logo" class="jl-logo-img">
+        </div>
+        <p>17+ years of data expertise helping businesses reach the right prospects with verified mailing lists and
+          sales leads.</p>
+      </div>
+      <div>
+        <div class="jl-footer-col-title">Solutions</div>
+        <ul class="jl-footer-links">
+          <li><a href="#">Mailing Lists</a></li>
+          <li><a href="#">Consumer Lists</a></li>
+          <li><a href="#">Email Lists</a></li>
+          <li><a href="#">Telemarketing Lists</a></li>
+          <li><a href="#">Direct Mail</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="jl-footer-col-title">Data Services</div>
+        <ul class="jl-footer-links">
+          <li><a href="#">List Hygiene</a></li>
+          <li><a href="#">Data Appending</a></li>
+          <li><a href="#">NCOA Processing</a></li>
+          <li><a href="#">CASS Certification</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="jl-footer-col-title">Company</div>
+        <ul class="jl-footer-links">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Testimonials</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="jl-footer-col-title">Legal</div>
+        <ul class="jl-footer-links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Resources</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="jl-footer-bottom">
+      <p>© 2026 Jared's Leads Inc. All rights reserved.</p>
+      <div class="jl-footer-legal">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </footer>
+
+</div>

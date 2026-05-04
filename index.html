@@ -1143,8 +1143,8 @@
     .jl-product-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 16px 40px rgba(11, 22, 40, 0.12);
-      background: var(--coral);
-      border-color: transparent;
+      border: 1px solid var(--coral);
+      /* Add coral border on hover */
     }
 
     /* Flex container for icon and title in same row */
@@ -1167,11 +1167,17 @@
       flex-shrink: 0;
     }
 
+    .jl-product-card:hover .jl-product-icon {
+      background: var(--coral);
+      /* Change icon background to coral on hover */
+    }
+
     .jl-product-icon-img {
       width: 24px;
       height: 24px;
       object-fit: contain;
       display: block;
+      /* No filter - icon keeps its original color */
     }
 
     .jl-product-title {
@@ -1184,28 +1190,11 @@
       margin: 0;
     }
 
-    .jl-product-card:hover .jl-product-icon {
-      background: rgba(255, 255, 255, 0.15);
-    }
-
-    .jl-product-card:hover .jl-product-icon-img {
-      filter: brightness(0) invert(1);
-    }
-
-    .jl-product-card:hover .jl-product-title {
-      color: white;
-    }
-
     .jl-product-desc {
       font-size: 16px;
       color: #4d5c6c;
       line-height: 1.55;
       margin-bottom: 16px;
-      transition: color 0.25s ease;
-    }
-
-    .jl-product-card:hover .jl-product-desc {
-      color: rgba(255, 255, 255, 0.7);
     }
 
     .jl-product-link {
@@ -1216,11 +1205,6 @@
       align-items: center;
       gap: 4px;
       text-decoration: none;
-      transition: color 0.25s ease;
-    }
-
-    .jl-product-card:hover .jl-product-link {
-      color: rgba(255, 255, 255, 0.85);
     }
 
     @media (max-width: 992px) {
@@ -1339,8 +1323,8 @@
     }
 
     .jl-how2-icon-img {
-      width: 40px;
-      height: 40px;
+      width: 50px;
+      height: 50px;
       object-fit: contain;
       display: block;
     }
@@ -1458,6 +1442,14 @@
       background: #E9F3FF;
       border-radius: 12px;
       border: 1px solid rgba(11, 22, 40, 0.06);
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .jl-why-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(11, 22, 40, 0.12);
+      border: 1px solid var(--coral);
     }
 
     .jl-why-item-icon {
@@ -1468,8 +1460,20 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 18px;
       flex-shrink: 0;
+      transition: all 0.25s ease;
+    }
+
+    .jl-why-item:hover .jl-why-item-icon {
+      background: var(--coral);
+    }
+
+    .jl-why-icon-img {
+      width: 35px;
+      height: 35px;
+      object-fit: contain;
+      display: block;
+      /* Icon keeps its original color - no filter */
     }
 
     .jl-why-item-title {
@@ -1524,8 +1528,17 @@
         border: none;
       }
 
+      .jl-why-item:hover {
+        border: 1px solid var(--coral);
+      }
+
       .jl-section-h2 {
         font-size: 28px;
+      }
+
+      .jl-why-icon-img {
+        width: 20px;
+        height: 20px;
       }
     }
 
@@ -1719,401 +1732,321 @@
 
     /* ================= TESTIMONIALS ================= */
     .jl-testimonials {
-      padding: 80px 40px;
-      background: #E9F3FF;
-      overflow-x: hidden;
-    }
+  padding: 80px 40px;
+  background: #E9F3FF;
+  overflow-x: hidden;
+}
 
-    /* Client eyebrow */
-    .jl-client-eyebrow {
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 1.8px;
-      text-transform: uppercase;
-      color: var(--coral, #05306D);
-      margin-bottom: 12px;
-    }
+/* Client eyebrow */
+.jl-client-eyebrow {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--coral, #05306D);
+  margin-bottom: 12px;
+}
 
-    /* Section header styles (inherited but ensured) */
-    .jl-section-h2 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 40px;
-      font-weight: 800;
-      color: var(--navy, #0B1628);
-      letter-spacing: -0.8px;
-      line-height: 1.1;
-      margin-bottom: 12px;
-    }
+/* Section header styles */
+.jl-section-h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--navy, #0B1628);
+  letter-spacing: -0.8px;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
 
-    .jl-section-sub {
-      color: #4d5c6c;
-      font-size: 16px;
-      max-width: auto;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
+.jl-section-sub {
+  color: #4d5c6c;
+  font-size: 16px;
+  max-width: auto;
+  margin: 0 auto;
+  line-height: 1.6;
+}
 
-    /* SLIDER CONTAINER - ensures proper horizontal scroll with no breakage */
-    .jl-slider {
-      max-width: 1100px;
-      margin: 0 auto;
-      overflow-x: auto;
-      overflow-y: hidden;
-      white-space: nowrap;
-      scrollbar-width: thin;
-      -webkit-overflow-scrolling: touch;
-      scroll-behavior: smooth;
-      cursor: grab;
-      position: relative;
-      scrollbar-color: var(--coral, #05306D) #e0e7f0;
-    }
+/* Video Testimonial Section */
+.jl-video-testimonial {
+  max-width: 900px;
+  margin: 0 auto 60px auto;
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(3, 48, 109, 0.35);
+}
 
-    .jl-slider:active {
-      cursor: grabbing;
-    }
+.jl-testimonial-video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 22px;
+}
 
-    /* Custom scrollbar for better UX */
-    .jl-slider::-webkit-scrollbar {
-      height: 6px;
-    }
+/* SLIDER CONTAINER */
+.jl-slider {
+  max-width: 1100px;
+  margin: 0 auto;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  cursor: grab;
+  position: relative;
+  scrollbar-color: var(--coral, #05306D) #e0e7f0;
+}
 
-    .jl-slider::-webkit-scrollbar-track {
-      background: #e0e7f0;
-      border-radius: 10px;
-    }
+.jl-slider:active {
+  cursor: grabbing;
+}
 
-    .jl-slider::-webkit-scrollbar-thumb {
-      background: var(--coral, #05306D);
-      border-radius: 10px;
-    }
+/* Custom scrollbar */
+.jl-slider::-webkit-scrollbar {
+  height: 6px;
+}
 
-    /* TRACK - now uses inline-flex and gap, non-animated by default for mobile */
-    .jl-slider-track {
-      display: inline-flex;
-      gap: 24px;
-      padding: 8px 4px 16px 4px;
-      white-space: normal;
-      animation: none;
-      width: auto;
-    }
+.jl-slider::-webkit-scrollbar-track {
+  background: #e0e7f0;
+  border-radius: 10px;
+}
 
-    /* Desktop animation only when hover is supported and screen is wide enough */
-    @media (min-width: 1024px) {
-      .jl-slider {
-        overflow-x: hidden;
-        cursor: default;
-      }
+.jl-slider::-webkit-scrollbar-thumb {
+  background: var(--coral, #05306D);
+  border-radius: 10px;
+}
 
-      .jl-slider-track {
-        display: flex;
-        width: max-content;
-        animation: scroll 25s linear infinite;
-      }
+/* TRACK */
+.jl-slider-track {
+  display: inline-flex;
+  gap: 24px;
+  padding: 8px 4px 16px 4px;
+  white-space: normal;
+  animation: none;
+  width: auto;
+}
 
-      .jl-slider:hover .jl-slider-track {
-        animation-play-state: paused;
-      }
-    }
+/* Desktop animation */
+@media (min-width: 1024px) {
+  .jl-slider {
+    overflow-x: hidden;
+    cursor: default;
+  }
 
-    /* CONTINUOUS SCROLL KEYFRAMES (desktop only) */
-    @keyframes scroll {
-      0% {
-        transform: translateX(0);
-      }
+  .jl-slider-track {
+    display: flex;
+    width: max-content;
+    animation: scroll 25s linear infinite;
+  }
 
-      100% {
-        transform: translateX(-50%);
-      }
-    }
+  .jl-slider:hover .jl-slider-track {
+    animation-play-state: paused;
+  }
+}
 
-    /* FEATURED TESTIMONIAL WRAPPER */
-    .jl-featured-testimonial {
-      max-width: 900px;
-      margin: 0 auto 60px auto;
-      position: relative;
-      overflow: visible;
-    }
+/* Continuous scroll keyframes */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 
-    /* MAIN CARD */
-    .jl-featured-content {
-      position: relative;
-      background: linear-gradient(135deg, #05306d, #033f85);
-      border-radius: 22px;
-      padding: 48px 40px 40px;
-      color: white;
-      text-align: center;
-      box-shadow: 0 30px 80px rgba(3, 48, 109, 0.35);
-      overflow: visible;
-      z-index: 1;
-    }
+/* Testimonial cards */
+.jl-testi-card {
+  flex: 0 0 auto;
+  width: 320px;
+  background: white;
+  border-radius: 18px;
+  padding: 26px;
+  position: relative;
+  overflow: visible;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  white-space: normal;
+  word-wrap: break-word;
+}
 
-    .jl-featured-content::before {
-      content: "";
-      position: absolute;
-      inset: -2px;
-      border-radius: 24px;
-      background: var(--coral-light, #033F85);
-      z-index: -1;
-    }
+.jl-testi-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
 
-    .jl-featured-stars {
-      color: #FFD700;
-      font-size: 18px;
-      letter-spacing: 3px;
-      margin-bottom: 18px;
-    }
+.jl-testi-stars {
+  color: #f5a623;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
 
-    .jl-featured-text {
-      font-size: 16px;
-      line-height: 1.8;
-      margin-bottom: 26px;
-      color: rgba(255, 255, 255, 0.9);
-      font-style: italic;
-      max-width: 650px;
-      margin-left: auto;
-      margin-right: auto;
-    }
+.jl-testi-text {
+  font-size: 14.5px;
+  color: var(--navy, #0B1628);
+  line-height: 1.7;
+  margin-bottom: 20px;
+  font-style: italic;
+}
 
-    .jl-featured-author {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-    }
+.jl-testi-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 
-    .jl-featured-avatar {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 14px;
-    }
+.jl-testi-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #05306d, #033f85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  flex-shrink: 0;
+}
 
-    .jl-featured-name {
-      font-weight: 700;
-      font-size: 15px;
-      color: #FFD700;
-    }
+.jl-testi-name {
+  font-weight: 700;
+  color: var(--coral, #05306D);
+  font-size: 14px;
+}
 
-    .jl-featured-role {
-      font-size: 13px;
-      color: rgba(255, 255, 255, 0.7);
-    }
+.jl-testi-role {
+  font-size: 12px;
+  color: #6b7c93;
+  line-height: 1.4;
+}
 
-    /* TESTIMONIAL CARDS - FIXED WIDTH FOR CONSISTENCY ON ALL SCREENS */
-    .jl-testi-card {
-      flex: 0 0 auto;
-      width: 320px;
-      background: white;
-      border-radius: 18px;
-      padding: 26px;
-      position: relative;
-      overflow: visible;
-      transition: 0.3s ease;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      white-space: normal;
-      word-wrap: break-word;
-    }
+/* ================= RESPONSIVE FIXES ================= */
 
-    .jl-testi-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-    }
+/* Tablet */
+@media (max-width: 900px) {
+  .jl-testimonials {
+    padding: 60px 24px;
+  }
 
-    .jl-testi-stars {
-      color: #f5a623;
-      margin-bottom: 12px;
-      font-size: 14px;
-    }
+  .jl-video-testimonial {
+    margin-bottom: 40px;
+    border-radius: 18px;
+  }
 
-    .jl-testi-text {
-      font-size: 14.5px;
-      color: var(--navy, #0B1628);
-      line-height: 1.7;
-      margin-bottom: 20px;
-      font-style: italic;
-    }
+  .jl-testimonial-video {
+    border-radius: 18px;
+  }
 
-    .jl-testi-author {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+  .jl-slider {
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
 
-    .jl-testi-avatar {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #05306d, #033f85);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: 700;
-      flex-shrink: 0;
-    }
+  .jl-slider-track {
+    display: inline-flex;
+    gap: 20px;
+    animation: none;
+    padding-right: 20px;
+  }
 
-    .jl-testi-name {
-      font-weight: 700;
-      color: var(--coral, #05306D);
-      font-size: 14px;
-    }
+  .jl-testi-card {
+    width: 300px;
+    flex-shrink: 0;
+  }
+}
 
-    .jl-testi-role {
-      font-size: 12px;
-      color: #6b7c93;
-      line-height: 1.4;
-    }
+/* Mobile */
+@media (max-width: 600px) {
+  .jl-testimonials {
+    padding: 48px 20px;
+  }
 
-    /* ================= RESPONSIVE FIXES ================= */
+  .jl-section-h2 {
+    font-size: 28px;
+  }
 
-    /* Tablet: keep cards side-scrollable but with consistent width */
-    @media (max-width: 900px) {
-      .jl-testimonials {
-        padding: 60px 24px;
-      }
+  .jl-section-sub {
+    font-size: 15px;
+  }
 
-      .jl-slider {
-        overflow-x: auto;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-      }
+  .jl-video-testimonial {
+    margin-bottom: 30px;
+    border-radius: 16px;
+  }
 
-      .jl-slider-track {
-        display: inline-flex;
-        gap: 20px;
-        animation: none;
-        padding-right: 20px;
-      }
+  .jl-testimonial-video {
+    border-radius: 16px;
+  }
 
-      .jl-testi-card {
-        width: 300px;
-        flex-shrink: 0;
-      }
+  .jl-slider {
+    overflow-x: auto;
+    white-space: nowrap;
+    cursor: grab;
+  }
 
-      .jl-featured-content {
-        padding: 36px 24px 32px;
-      }
+  .jl-slider-track {
+    display: inline-flex;
+    gap: 16px;
+    animation: none;
+    padding: 4px 4px 12px 4px;
+  }
 
-      .jl-featured-text {
-        font-size: 15px;
-        line-height: 1.65;
-      }
-    }
+  .jl-testi-card {
+    width: 280px;
+    flex: 0 0 auto;
+    padding: 20px;
+  }
 
-    /* Mobile: preserve same card style, horizontal scroll, no wrapping */
-    @media (max-width: 600px) {
-      .jl-testimonials {
-        padding: 48px 20px;
-      }
+  .jl-testi-text {
+    font-size: 13.5px;
+    line-height: 1.65;
+  }
 
-      .jl-section-h2 {
-        font-size: 28px;
-      }
+  .jl-testi-avatar {
+    width: 38px;
+    height: 38px;
+    font-size: 12px;
+  }
 
-      .jl-section-sub {
-        font-size: 15px;
-      }
+  .jl-testi-name {
+    font-size: 13px;
+  }
 
-      .jl-featured-testimonial {
-        margin-bottom: 40px;
-      }
+  .jl-testi-role {
+    font-size: 11px;
+  }
 
-      .jl-featured-content {
-        padding: 32px 20px 28px;
-      }
+  /* Scroll indicator hint */
+  .jl-slider::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--coral, #05306D) 20%, #e0e7f0 80%);
+    border-radius: 2px;
+    opacity: 0.4;
+    pointer-events: none;
+  }
+}
 
-      .jl-featured-text {
-        font-size: 14px;
-        line-height: 1.6;
-      }
+/* Small mobile */
+@media (max-width: 480px) {
+  .jl-testimonials {
+    padding: 40px 16px;
+  }
 
-      .jl-featured-name {
-        font-size: 14px;
-      }
+  .jl-testi-card {
+    width: 260px;
+    padding: 18px;
+  }
 
-      .jl-featured-role {
-        font-size: 12px;
-      }
-
-      /* Maintain consistent card width on mobile - exactly like original but scrollable */
-      .jl-slider {
-        overflow-x: auto;
-        white-space: nowrap;
-        cursor: grab;
-      }
-
-      .jl-slider-track {
-        display: inline-flex;
-        gap: 16px;
-        animation: none;
-        padding: 4px 4px 12px 4px;
-      }
-
-      .jl-testi-card {
-        width: 280px;
-        flex: 0 0 auto;
-        padding: 20px;
-      }
-
-      .jl-testi-text {
-        font-size: 13.5px;
-        line-height: 1.65;
-      }
-
-      .jl-testi-avatar {
-        width: 38px;
-        height: 38px;
-        font-size: 12px;
-      }
-
-      .jl-testi-name {
-        font-size: 13px;
-      }
-
-      .jl-testi-role {
-        font-size: 11px;
-      }
-
-      /* Custom scroll indicator hint */
-      .jl-slider::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background: linear-gradient(90deg, var(--coral, #05306D) 20%, #e0e7f0 80%);
-        border-radius: 2px;
-        opacity: 0.4;
-        pointer-events: none;
-      }
-    }
-
-    /* Small mobile devices (<= 480px) */
-    @media (max-width: 480px) {
-      .jl-testimonials {
-        padding: 40px 16px;
-      }
-
-      .jl-testi-card {
-        width: 260px;
-        padding: 18px;
-      }
-
-      .jl-testi-text {
-        font-size: 13px;
-      }
-
-      .jl-featured-avatar {
-        width: 44px;
-        height: 44px;
-      }
-    }
+  .jl-testi-text {
+    font-size: 13px;
+  }
+}
 
     /* ================= FAQ ================= */
     .jl-faq {
@@ -2772,7 +2705,7 @@
         <div class="jl-product-card">
           <div class="jl-product-header">
             <div class="jl-product-icon">
-              <img src="icons/business-mail.png" alt="Business Mailing Lists Icon" class="jl-product-icon-img">
+              <img src="icons/icons8-mailing-96.png" alt="Business Mailing Lists Icon" class="jl-product-icon-img">
             </div>
             <div class="jl-product-title">Business Mailing Lists</div>
           </div>
@@ -2783,7 +2716,7 @@
         <div class="jl-product-card">
           <div class="jl-product-header">
             <div class="jl-product-icon">
-              <img src="icons/business-mail.png" alt="Consumer Mailing Lists Icon" class="jl-product-icon-img">
+              <img src="icons/icons8-mailing-100.png" alt="Consumer Mailing Lists Icon" class="jl-product-icon-img">
             </div>
             <div class="jl-product-title">Consumer Mailing Lists</div>
           </div>
@@ -2794,7 +2727,7 @@
         <div class="jl-product-card">
           <div class="jl-product-header">
             <div class="jl-product-icon">
-              <img src="icons/email.png" alt="Email Lists Icon" class="jl-product-icon-img">
+              <img src="icons/icons8-email-open-96.png" alt="Email Lists Icon" class="jl-product-icon-img">
             </div>
             <div class="jl-product-title">Email Lists</div>
           </div>
@@ -2805,7 +2738,7 @@
         <div class="jl-product-card">
           <div class="jl-product-header">
             <div class="jl-product-icon">
-              <img src="icons/headset.png" alt="Telemarketing Lists Icon" class="jl-product-icon-img">
+              <img src="icons/icons8-headset-96.png" alt="Telemarketing Lists Icon" class="jl-product-icon-img">
             </div>
             <div class="jl-product-title">Telemarketing Lists</div>
           </div>
@@ -2816,7 +2749,7 @@
         <div class="jl-product-card">
           <div class="jl-product-header">
             <div class="jl-product-icon">
-              <img src="icons/data-service.png" alt="Data Services Icon" class="jl-product-icon-img">
+              <img src="icons/icons8-services-50.png" alt="Data Services Icon" class="jl-product-icon-img">
             </div>
             <div class="jl-product-title">Data Services</div>
           </div>
@@ -2827,7 +2760,7 @@
         <div class="jl-product-card">
           <div class="jl-product-header">
             <div class="jl-product-icon">
-              <img src="icons/direct-mail.png" alt="Direct Mail Services Icon" class="jl-product-icon-img">
+              <img src="icons/icons8-mail-96.png" alt="Direct Mail Services Icon" class="jl-product-icon-img">
             </div>
             <div class="jl-product-title">Direct Mail Services</div>
           </div>
@@ -2850,7 +2783,7 @@
           <div class="jl-how2-step">
             <div class="jl-how2-num">01</div>
             <div class="jl-how2-icon">
-              <img src="icons/target.png" alt="Target Audience Icon" class="jl-how2-icon-img">
+              <img src="icons/icons8-target-user-96.png" alt="Target Audience Icon" class="jl-how2-icon-img">
             </div>
             <h3>Tell Us Your Target Audience</h3>
             <p>Define your ideal customer by industry, location, demographics, or behavior.</p>
@@ -2858,7 +2791,7 @@
           <div class="jl-how2-step">
             <div class="jl-how2-num">02</div>
             <div class="jl-how2-icon">
-              <img src="icons/setting.png" alt="Build List Icon" class="jl-how2-icon-img">
+              <img src="icons/icons8-bulleted-list-96.png" alt="Build List Icon" class="jl-how2-icon-img">
             </div>
             <h3>We Build Your Custom List</h3>
             <p>Our experts compile and verify data from trusted sources with full hygiene.</p>
@@ -2866,7 +2799,7 @@
           <div class="jl-how2-step">
             <div class="jl-how2-num">03</div>
             <div class="jl-how2-icon">
-              <img src="icons/verified.png" alt="Verified Data Icon" class="jl-how2-icon-img">
+              <img src="icons/icons8-verified-badge-96.png" alt="Verified Data Icon" class="jl-how2-icon-img">
             </div>
             <h3>Receive Verified Data</h3>
             <p>Download ready-to-use, deliverable lists in CSV, Excel, or mailing formats.</p>
@@ -2891,7 +2824,9 @@
           </div>
           <div class="jl-why-items">
             <div class="jl-why-item">
-              <div class="jl-why-item-icon">🏆</div>
+              <div class="jl-why-item-icon">
+                <img src="icons/icons8-award-96.png" alt="Award Icon" class="jl-why-icon-img">
+              </div>
               <div>
                 <div class="jl-why-item-title">Inc. 5000 Recognized</div>
                 <div class="jl-why-item-desc">One of America's fastest-growing private companies — a third-party
@@ -2899,15 +2834,18 @@
               </div>
             </div>
             <div class="jl-why-item">
-              <div class="jl-why-item-icon">🛡️</div>
+              <div class="jl-why-item-icon">
+                <img src="icons/icons8-verification-96.png" alt="Shield Icon" class="jl-why-icon-img">
+              </div>
               <div>
-                <!-- <div class="jl-why-item-title">98%+ Deliverability Guarantee</div> -->
                 <div class="jl-why-item-desc">Multi-source verification, CASS certification, and regular data hygiene
                   ensure clean, deliverable lists every time.</div>
               </div>
             </div>
             <div class="jl-why-item">
-              <div class="jl-why-item-icon">👤</div>
+              <div class="jl-why-item-icon">
+                <img src="icons/icons8-manager-96.png" alt="Account Manager Icon" class="jl-why-icon-img">
+              </div>
               <div>
                 <div class="jl-why-item-title">Dedicated Account Manager</div>
                 <div class="jl-why-item-desc">A real person who knows your business, available 24/7. Not a chatbot, not
@@ -2915,7 +2853,9 @@
               </div>
             </div>
             <div class="jl-why-item">
-              <div class="jl-why-item-icon">🔓</div>
+              <div class="jl-why-item-icon">
+                <img src="icons/icons8-contract-96.png" alt="No Contracts Icon" class="jl-why-icon-img">
+              </div>
               <div>
                 <div class="jl-why-item-title">No Minimums, No Contracts</div>
                 <div class="jl-why-item-desc">Start small or go big. Flexible list building with self-service and
@@ -2969,161 +2909,141 @@
 
     <!-- TESTIMONIALS -->
     <section class="jl-testimonials">
-      <div class="jl-section-header">
-        <div class="jl-client-eyebrow">Client Feedback</div>
-        <h2 class="jl-section-h2">What Our Clients Say</h2>
-        <p class="jl-section-sub">
-          Real results from businesses who trust Jared's Leads for their prospect data.
-        </p>
-      </div>
+  <div class="jl-section-header">
+    <div class="jl-client-eyebrow">Client Feedback</div>
+    <h2 class="jl-section-h2">What Our Clients Say</h2>
+    <p class="jl-section-sub">
+      Real results from businesses who trust Jared's Leads for their prospect data.
+    </p>
+  </div>
 
-      <div class="jl-featured-testimonial">
-        <!-- <div class="jl-featured-badge">⭐ Best Client Story</div> -->
+  <!-- Video Testimonial Section -->
+  <div class="jl-video-testimonial">
+    <video class="jl-testimonial-video" controls autoplay muted loop playsinline>
+      <source src="testimonial.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
 
-        <div class="jl-featured-content">
-          <div class="jl-featured-stars">★★★★★</div>
-
-          <p class="jl-featured-text">
-            "Jared's Leads completely transformed our outbound strategy. Within 60 days,
-            we saw a 52% increase in conversions. The data accuracy and support team are unmatched."
-          </p>
-
-          <div class="jl-featured-author">
-            <div class="jl-featured-avatar">RM</div>
-            <div>
-              <div class="jl-featured-name">Robert M.</div>
-              <div class="jl-featured-role">Director, Growth Marketing</div>
-            </div>
+  <div class="jl-slider">
+    <div class="jl-slider-track">
+      <div class="jl-testi-card">
+        <div class="jl-testi-stars">★★★★★</div>
+        <div class="jl-testi-text">
+          "Jared's Leads delivered exactly what they promised — a targeted, verified list that drove a 40% increase
+          in direct mail response rate."
+        </div>
+        <div class="jl-testi-author">
+          <div class="jl-testi-avatar">MF</div>
+          <div>
+            <div class="jl-testi-name">Michael F.</div>
+            <div class="jl-testi-role">VP Marketing, Private Financial Group</div>
           </div>
         </div>
       </div>
 
-      <div class="jl-slider">
-        <div class="jl-slider-track">
-
-          <!-- ORIGINAL CARDS -->
-          <div class="jl-testi-card">
-            <div class="jl-testi-stars">★★★★★</div>
-            <div class="jl-testi-text">
-              "Jared's Leads delivered exactly what they promised — a targeted, verified list that drove a 40% increase
-              in
-              direct mail response rate."
-            </div>
-            <div class="jl-testi-author">
-              <div class="jl-testi-avatar">MF</div>
-              <div>
-                <div class="jl-testi-name">Michael F.</div>
-                <div class="jl-testi-role">VP Marketing, Private Financial Group</div>
-              </div>
-            </div>
+      <div class="jl-testi-card">
+        <div class="jl-testi-stars">★★★★★</div>
+        <div class="jl-testi-text">
+          "We've used three other list providers. None come close to Jared's data quality. Fast and accurate service."
+        </div>
+        <div class="jl-testi-author">
+          <div class="jl-testi-avatar" style="background:#185FA5;">ST</div>
+          <div>
+            <div class="jl-testi-name">Sandra T.</div>
+            <div class="jl-testi-role">Owner, Remodeling Business</div>
           </div>
-
-          <div class="jl-testi-card">
-            <div class="jl-testi-stars">★★★★★</div>
-            <div class="jl-testi-text">
-              "We've used three other list providers. None come close to Jared’s data quality. Fast and accurate
-              service."
-            </div>
-            <div class="jl-testi-author">
-              <div class="jl-testi-avatar" style="background:#185FA5;">ST</div>
-              <div>
-                <div class="jl-testi-name">Sandra T.</div>
-                <div class="jl-testi-role">Owner, Remodeling Business</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="jl-testi-card">
-            <div class="jl-testi-stars">★★★★★</div>
-            <div class="jl-testi-text">
-              "Jared’s consistently outperforms everyone else. Best ROI we’ve seen from any data provider."
-            </div>
-            <div class="jl-testi-author">
-              <div class="jl-testi-avatar" style="background:#0F6E56;">DK</div>
-              <div>
-                <div class="jl-testi-name">David K.</div>
-                <div class="jl-testi-role">Director, Insurance Partners</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="jl-testi-card">
-            <div class="jl-testi-stars">★★★★★</div>
-            <div class="jl-testi-text">
-              "Amazing support and targeting options. Helped us scale campaigns faster than expected."
-            </div>
-            <div class="jl-testi-author">
-              <div class="jl-testi-avatar" style="background:#A53D18;">AR</div>
-              <div>
-                <div class="jl-testi-name">Alex R.</div>
-                <div class="jl-testi-role">Growth Manager</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- DUPLICATE FOR INFINITE LOOP -->
-          <div class="jl-testi-card">
-            <div class="jl-testi-stars">★★★★★</div>
-            <div class="jl-testi-text">
-              "Jared's Leads delivered exactly what they promised — a targeted, verified list that drove a 40% increase
-              in
-              direct mail response rate."
-            </div>
-            <div class="jl-testi-author">
-              <div class="jl-testi-avatar">MF</div>
-              <div>
-                <div class="jl-testi-name">Michael F.</div>
-                <div class="jl-testi-role">VP Marketing, Private Financial Group</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="jl-testi-card">
-            <div class="jl-testi-stars">★★★★★</div>
-            <div class="jl-testi-text">
-              "We've used three other list providers. None come close to Jared’s data quality. Fast and accurate
-              service."
-            </div>
-            <div class="jl-testi-author">
-              <div class="jl-testi-avatar" style="background:#185FA5;">ST</div>
-              <div>
-                <div class="jl-testi-name">Sandra T.</div>
-                <div class="jl-testi-role">Owner, Remodeling Business</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="jl-testi-card">
-            <div class="jl-testi-stars">★★★★★</div>
-            <div class="jl-testi-text">
-              "Jared’s consistently outperforms everyone else. Best ROI we’ve seen from any data provider."
-            </div>
-            <div class="jl-testi-author">
-              <div class="jl-testi-avatar" style="background:#0F6E56;">DK</div>
-              <div>
-                <div class="jl-testi-name">David K.</div>
-                <div class="jl-testi-role">Director, Insurance Partners</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="jl-testi-card">
-            <div class="jl-testi-stars">★★★★★</div>
-            <div class="jl-testi-text">
-              "Amazing support and targeting options. Helped us scale campaigns faster than expected."
-            </div>
-            <div class="jl-testi-author">
-              <div class="jl-testi-avatar" style="background:#A53D18;">AR</div>
-              <div>
-                <div class="jl-testi-name">Alex R.</div>
-                <div class="jl-testi-role">Growth Manager</div>
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
-    </section>
+
+      <div class="jl-testi-card">
+        <div class="jl-testi-stars">★★★★★</div>
+        <div class="jl-testi-text">
+          "Jared's consistently outperforms everyone else. Best ROI we've seen from any data provider."
+        </div>
+        <div class="jl-testi-author">
+          <div class="jl-testi-avatar" style="background:#0F6E56;">DK</div>
+          <div>
+            <div class="jl-testi-name">David K.</div>
+            <div class="jl-testi-role">Director, Insurance Partners</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="jl-testi-card">
+        <div class="jl-testi-stars">★★★★★</div>
+        <div class="jl-testi-text">
+          "Amazing support and targeting options. Helped us scale campaigns faster than expected."
+        </div>
+        <div class="jl-testi-author">
+          <div class="jl-testi-avatar" style="background:#A53D18;">AR</div>
+          <div>
+            <div class="jl-testi-name">Alex R.</div>
+            <div class="jl-testi-role">Growth Manager</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Duplicate cards for infinite scroll -->
+      <div class="jl-testi-card">
+        <div class="jl-testi-stars">★★★★★</div>
+        <div class="jl-testi-text">
+          "Jared's Leads delivered exactly what they promised — a targeted, verified list that drove a 40% increase
+          in direct mail response rate."
+        </div>
+        <div class="jl-testi-author">
+          <div class="jl-testi-avatar">MF</div>
+          <div>
+            <div class="jl-testi-name">Michael F.</div>
+            <div class="jl-testi-role">VP Marketing, Private Financial Group</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="jl-testi-card">
+        <div class="jl-testi-stars">★★★★★</div>
+        <div class="jl-testi-text">
+          "We've used three other list providers. None come close to Jared's data quality. Fast and accurate service."
+        </div>
+        <div class="jl-testi-author">
+          <div class="jl-testi-avatar" style="background:#185FA5;">ST</div>
+          <div>
+            <div class="jl-testi-name">Sandra T.</div>
+            <div class="jl-testi-role">Owner, Remodeling Business</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="jl-testi-card">
+        <div class="jl-testi-stars">★★★★★</div>
+        <div class="jl-testi-text">
+          "Jared's consistently outperforms everyone else. Best ROI we've seen from any data provider."
+        </div>
+        <div class="jl-testi-author">
+          <div class="jl-testi-avatar" style="background:#0F6E56;">DK</div>
+          <div>
+            <div class="jl-testi-name">David K.</div>
+            <div class="jl-testi-role">Director, Insurance Partners</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="jl-testi-card">
+        <div class="jl-testi-stars">★★★★★</div>
+        <div class="jl-testi-text">
+          "Amazing support and targeting options. Helped us scale campaigns faster than expected."
+        </div>
+        <div class="jl-testi-author">
+          <div class="jl-testi-avatar" style="background:#A53D18;">AR</div>
+          <div>
+            <div class="jl-testi-name">Alex R.</div>
+            <div class="jl-testi-role">Growth Manager</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- FAQ -->
     <section class="jl-faq">
@@ -3298,17 +3218,17 @@
   <!-- Sticky Mobile Footer Bar (visible only on mobile) -->
   <div class="jl-sticky-mobile-footer">
     <button class="jl-sticky-btn jl-sticky-btn-build">
-      <img src="icons/build-list.png" alt="Build List" class="jl-sticky-icon-img"
+      <img src="icons/icons8-bulleted-list-96.png" alt="Build List" class="jl-sticky-icon-img"
         style="filter: brightness(0) invert(1);">
       <span class="jl-sticky-text">Build List</span>
     </button>
     <button class="jl-sticky-btn jl-sticky-btn-quote">
-      <img src="icons/get-quote.png" alt="Get Quote" class="jl-sticky-icon-img"
-        style="filter: brightness(0) invert(1);">
+      <img src="icons/quote.png" alt="Get Quote" class="jl-sticky-icon-img" style="filter: brightness(0) invert(1);">
       <span class="jl-sticky-text">Get Quote</span>
     </button>
     <button class="jl-sticky-btn jl-sticky-btn-call">
-      <img src="icons/call.png" alt="Call Us" class="jl-sticky-icon-img" style="filter: brightness(0) invert(1);">
+      <img src="icons/icons8-phone-96.png" alt="Call Us" class="jl-sticky-icon-img"
+        style="filter: brightness(0) invert(1);">
       <span class="jl-sticky-text">Call Us</span>
     </button>
   </div>
